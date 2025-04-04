@@ -6,56 +6,81 @@
     <title>Bank Subscription Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS -->
 </head>
-<body>
-    <div class="container">
-        <h2>🔮 Bank Subscription Prediction</h2>
-        <form id="predictionForm">
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 class="text-xl font-semibold text-center mb-6">🔮 Bank Subscription Prediction</h2>
+
+        <form id="predictionForm" class="space-y-4">
             <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
+                <label class="block text-sm font-medium text-gray-700" for="age">Age:</label>
+                <input type="number" id="age" name="age" required class="mt-1 w-full border-gray-300 rounded-lg p-2">
             </div>
 
             <div class="form-group">
-                <label for="job">Job Type (0-10):</label>
-                <input type="number" id="job" name="job" required>
+                <label class="block text-sm font-medium text-gray-700" for="job">Job Type:</label>
+                <select id="job" name="job" required class="mt-1 w-full border-gray-300 rounded-lg p-2">
+                    <option value="0">Admin</option>
+                    <option value="1">Blue-collar</option>
+                    <option value="2">Entrepreneur</option>
+                    <option value="3">Housemaid</option>
+                    <option value="4">Management</option>
+                    <option value="5">Retired</option>
+                    <option value="6">Self-employed</option>
+                    <option value="7">Services</option>
+                    <option value="8">Student</option>
+                    <option value="9">Technician</option>
+                    <option value="10">Unemployed</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="marital">Marital Status (0-2):</label>
-                <input type="number" id="marital" name="marital" required>
+                <label class="block text-sm font-medium text-gray-700" for="marital">Marital Status:</label>
+                <select id="marital" name="marital" required class="mt-1 w-full border-gray-300 rounded-lg p-2">
+                    <option value="0">Single</option>
+                    <option value="1">Married</option>
+                    <option value="2">Divorced</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="education">Education Level (0-3):</label>
-                <input type="number" id="education" name="education" required>
+                <label class="block text-sm font-medium text-gray-700" for="education">Education Level:</label>
+                <select id="education" name="education" required class="mt-1 w-full border-gray-300 rounded-lg p-2">
+                    <option value="0">Primary</option>
+                    <option value="1">Secondary</option>
+                    <option value="2">Tertiary</option>
+                    <option value="3">Unknown</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="default">Default:</label>
-                <select id="default" name="default">
+                <label class="block text-sm font-medium text-gray-700" for="default">Default:</label>
+                <select id="default" name="default" class="mt-1 w-full border-gray-300 rounded-lg p-2">
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="housing">Housing Loan:</label>
-                <select id="housing" name="housing">
+                <label class="block text-sm font-medium text-gray-700" for="housing">Housing Loan:</label>
+                <select id="housing" name="housing" class="mt-1 w-full border-gray-300 rounded-lg p-2">
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="loan">Personal Loan:</label>
-                <select id="loan" name="loan">
+                <label class="block text-sm font-medium text-gray-700" for="loan">Personal Loan:</label>
+                <select id="loan" name="loan" class="mt-1 w-full border-gray-300 rounded-lg p-2">
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
                 </select>
             </div>
 
-            <button type="submit">🔍 Predict</button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 w-full">
+                🔍 Predict
+            </button>
         </form>
     </div>
 
