@@ -1,0 +1,21 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Docker image
+        run: sudo docker pull tharangani/coursework:latest
+
+      - name: Delete old Docker container
+        run: sudo docker rm -f coursework || true
+
+      - name: Run Docker container
+        run: sudo docker run -d -p 5000:5000 --name coursework tharangani/coursework:latest
